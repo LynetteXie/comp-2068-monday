@@ -8,7 +8,7 @@ const blogRoutes = require('./routes/blogs');
 
 // Registering our pageRoutes
 app.use('/', pageRoutes);
-app.use('/blogs', blogRoutes);
+app.use('/', blogRoutes);
 
 // Exporting the changes
 module.exports = app;
