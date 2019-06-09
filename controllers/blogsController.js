@@ -7,7 +7,14 @@ exports.new = (req, res) => {
 };
 
 exports.index = (req, res) => {
-
+    Blog.find()
+      .then(blog => {
+        res.render('blogs/index', {
+          blogs: blogs,
+          title: 'Archive'
+        });
+      })
+      .catch(err => console.log(`ERROR: ${err}`));
 };
 
 exports.show = (req, res) => {
@@ -15,13 +22,14 @@ exports.show = (req, res) => {
 };
 
 exports.create = (req, res) => {
+    console.log("You are here.");
     Blog.create(req.body.blog)
-    .then(() => {
-      res.redirect('/blogs');
-    })
-    .catch(err => {
-      console.error(`ERROR: ${err}`);
-    });
+      .then(() => {
+        res.redirect('/blogs');
+      })
+      .catch(err => {
+        console.error(`ERROR: ${err}`);
+      });
 };
 
 exports.drafts = (req, res) => {

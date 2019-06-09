@@ -6,7 +6,7 @@ const BlogsController = require('../controllers/blogsController');
 
 // Our routes
 router.get('/new', BlogsController.new);
-router.get('/draft', BlogsController.drafts);
+router.get('/drafts', BlogsController.drafts);
 router.get('/published', BlogsController.published);
 router.get('/', BlogsController.index);
 router.get('/:id', BlogsController.show);

@@ -12,7 +12,12 @@ mongoose.connect(process.env.DB_URI, {
 const express = require('express');
 const app = express();
 
-// Body 
+// Body parser which will make reading request bodies MUCH easier
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 const routes = require('./routes.js');
 app.use('/', routes);
